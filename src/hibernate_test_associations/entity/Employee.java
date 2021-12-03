@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "employees")
 public class Employee {
-    //Comment
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -78,6 +77,14 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Detail getEmpDetail() {
+        return empDetail;
+    }
+
+    public void setEmpDetail(Detail empDetail) {
+        this.empDetail = empDetail;
+    }
+
     @Override
     public String
     toString() {
@@ -90,11 +97,4 @@ public class Employee {
                 '}';
     }
 
-    public Detail getEmpDetail() {
-        return empDetail;
-    }
-
-    public void setEmpDetail(Detail empDetail) {
-        this.empDetail = empDetail;
-    }
 }
