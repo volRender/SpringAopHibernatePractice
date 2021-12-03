@@ -1,24 +1,32 @@
-package hibernate_test;
+package hibernate_test_associations;
 
 import hibernate_test.entity.Employee;
+import hibernate_test_associations.entity.Detail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.util.List;
-
 public class Test {
     public static void main(String[] args) {
 
-        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Employee.class)
+        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
 
-        try {
-            Session session = factory.getCurrentSession();
+        Session session = null;
 
-            //save (add)
-//            Employee emp = new Employee("Mama", "Moya", "IT", 1600);
-            session.beginTransaction();
+        try {
+//           session = factory.getCurrentSession();
+//
+//            //save (add)
+//            Employee emp = new Employee("Masha", "Zaharova", "Sales", 1200);
+//            Detail detail = new Detail("Otradnoe", "84343843", "lit@mail.ru");
+//
+//            session.beginTransaction();
+//
+//
+//
 //            session.save(emp);
 
             //get
@@ -30,23 +38,18 @@ public class Test {
 //                System.out.println(em);
 //            }
 
-              //update
-//            Employee emp = session.get(Employee.class, 1);
-//            emp.setSalary(1000);
-
-//            session.createQuery("update Employee set salary = 300 where name = 'Masha'").executeUpdate();
-
             //delete
 //            Employee emp = session.get(Emplo
 //            yee.class, 1);
 //            session.delete(emp);
 
-            session.createQuery("delete from Employee where name = 'Masha'").executeUpdate();
-
-            session.getTransaction().commit();
+//            session.createQuery("delete from Employee where name = 'Masha'").executeUpdate();
+//
+//            session.getTransaction().commit();
         }
         finally {
             factory.close();
+            session.close();
         }
 
     }
