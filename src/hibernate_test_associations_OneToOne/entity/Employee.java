@@ -1,4 +1,4 @@
-package hibernate_test_associations.entity;
+package hibernate_test_associations_OneToOne.entity;
 
 import javax.persistence.*;
 
