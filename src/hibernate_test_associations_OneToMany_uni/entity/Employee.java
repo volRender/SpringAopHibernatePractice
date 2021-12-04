@@ -1,6 +1,4 @@
-package hibernate_test_associations_OneToMany_bi.entity;
-
-import hibernate_test_associations_OneToOne.entity.Detail;
+package hibernate_test_associations_OneToMany_uni.entity;
 
 import javax.persistence.*;
 
@@ -21,10 +19,6 @@ public class Employee {
 
     @Column(name = "salary")
     private int salary;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "department_id")
-    private Department department;
 
     public Employee() {
     }
@@ -65,14 +59,6 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
     }
 
     @Override

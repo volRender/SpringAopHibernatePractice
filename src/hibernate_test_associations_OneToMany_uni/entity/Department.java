@@ -1,4 +1,4 @@
-package hibernate_test_associations_OneToMany_bi.entity;
+package hibernate_test_associations_OneToMany_uni.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -22,7 +22,8 @@ public class Department {
     @Column(name = "min_salary")
     private int minSalary;
 
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "department_id")
     private List<Employee> emps;
 
     public Department() {
@@ -79,7 +80,6 @@ public class Department {
             emps = new ArrayList();
         }
         emps.add(employee);
-        employee.setDepartment(this);
     }
 
     @Override
